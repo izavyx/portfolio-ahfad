@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg-primary: #F7F7F5;
+  --bg-secondary: #EFEFEB;
+  --surface: #FFFFFF;
+  --surface-muted: #F8F8F6;
+  --surface-alt: #F2F2EE;
+  --surface-hover: #EAEAE6;
+  --text-primary: #111111;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --border: #D7D7D3;
+  --border-subtle: #E5E5E2;
+  --border-hover: #A1A1AA;
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-contrast: #FFFFFF;
+  --accent-muted: rgba(37, 99, 235, 0.12);
+  --nav-bg: rgba(247, 247, 245, 0.88);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #080808;
+  --bg-secondary: #101010;
+  --surface: #141414;
+  --surface-muted: #101012;
+  --surface-alt: #161619;
+  --surface-hover: #1C1C20;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A1A1AA;
+  --text-muted: #8E8E99;
+  --border: #27272A;
+  --border-subtle: #1C1C20;
+  --border-hover: #3F3F46;
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-contrast: #080808;
+  --accent-muted: rgba(59, 130, 246, 0.12);
+  --nav-bg: rgba(8, 8, 8, 0.88);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-mono-code {
+  font-family: 'Geist Mono', 'Space Mono', monospace;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+}
+
+/* Card Surface */
+.card-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.card-surface:hover {
+  border-color: var(--border-hover);
+  background-color: var(--surface-hover);
+}
+
+/* Topographic / Grid subtle background pattern */
+.bg-topo-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+[data-theme="light"] .bg-topo-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
