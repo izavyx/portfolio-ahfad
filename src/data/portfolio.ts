@@ -1,8 +1,10 @@
 import {
   Mail,
-  Code2,
-  Database,
-  Cloud,
+  Film,
+  Sparkles,
+  Palette,
+  Sliders,
+  Layers,
   Wrench,
   Briefcase,
   GraduationCap,
@@ -10,12 +12,12 @@ import {
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "../components/Icons";
 
 export const personalInfo = {
-  name: "AHFAD AMIRUDIN",
-  shortName: "AHFAD",
-  role: "Web Developer / Software Engineer",
-  tagline: "Saya mengembangkan aplikasi web yang responsif, terstruktur, dan berkinerja tinggi dari antarmuka hingga backend.",
-  bio: "Passionate developer dengan keahlian dalam membangun aplikasi web modern. Saya fokus pada pengembangan React, TypeScript, dan arsitektur cloud-native yang scalable.",
-  avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Ahfad&backgroundColor=3b82f6",
+  name: "AHFADH AMIRUDIN",
+  shortName: "AHFADH",
+  role: "Video Editor / Motion Graphics",
+  tagline: "Saya menciptakan karya visual yang dinamis melalui video editing, motion graphics, dan visual storytelling yang berkarakter.",
+  bio: "Video Editor & Motion Graphics Artist dengan fokus pada pacing sinematik, animasi 2D/3D, kinetic typography, dan color grading yang presisi.",
+  avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Ahfadh&backgroundColor=3b82f6",
   status: "Tersedia untuk Bekerja",
   resumeUrl: "#",
   email: "ighifarii05@gmail.com",
@@ -24,9 +26,9 @@ export const personalInfo = {
 };
 
 export const socialLinks = [
+  { name: "Instagram", url: "https://www.instagram.com/necessaryy._/", icon: InstagramIcon, handle: "@necessaryy._" },
   { name: "GitHub", url: "https://github.com/IGhifari", icon: GithubIcon, handle: "@IGhifari" },
   { name: "LinkedIn", url: "https://linkedin.com/in/ighifari", icon: LinkedinIcon, handle: "in/ighifari" },
-  { name: "Instagram", url: "https://instagram.com/ghfrriii", icon: InstagramIcon, handle: "@ghfrriii" },
   { name: "Email", url: "mailto:ighifarii05@gmail.com", icon: Mail, handle: "ighifarii05@gmail.com" },
 ];
 
@@ -34,7 +36,7 @@ export const navItems = [
   { label: "PROYEK", href: "#projects" },
   { label: "PENGALAMAN", href: "#experience" },
   { label: "TENTANG", href: "#about" },
-  { label: "TEKNOLOGI", href: "#stack" },
+  { label: "TOOLS", href: "#stack" },
   { label: "KONTAK", href: "#contact" },
 ];
 
@@ -46,93 +48,78 @@ export interface Skill {
 export interface SkillCategory {
   title: string;
   code: string;
-  icon: typeof Code2;
+  icon: typeof Film;
   skills: Skill[];
 }
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Bahasa Pemrograman",
+    title: "Video Editing",
     code: "01",
-    icon: Code2,
+    icon: Film,
     skills: [
-      { name: "TypeScript" },
-      { name: "JavaScript" },
-      { name: "PHP" },
-      { name: "Python" },
-      { name: "HTML5 & CSS3" },
+      { name: "Adobe Premiere Pro" },
+      { name: "DaVinci Resolve" },
+      { name: "CapCut Pro" },
+      { name: "Final Cut Pro" },
+      { name: "Storytelling & Pacing" },
     ],
   },
   {
-    title: "Pengembangan Frontend",
+    title: "Motion Graphics & Animasi",
     code: "02",
-    icon: Code2,
+    icon: Sparkles,
     skills: [
-      { name: "React" },
-      { name: "Next.js" },
-      { name: "Tailwind CSS" },
-      { name: "Vite" },
-      { name: "Framer Motion" },
+      { name: "Adobe After Effects" },
+      { name: "Kinetic Typography" },
+      { name: "Logo & Brand Motion" },
+      { name: "2D/3D Keyframing" },
+      { name: "Blender" },
     ],
   },
   {
-    title: "Pengembangan Backend",
+    title: "Color Grading & VFX",
     code: "03",
-    icon: Database,
+    icon: Palette,
     skills: [
-      { name: "Node.js" },
-      { name: "Express" },
-      { name: "Laravel" },
-      { name: "Zod" },
-      { name: "REST API" },
+      { name: "Color Correction" },
+      { name: "LUT & Look Design" },
+      { name: "Rotoscoping & Masking" },
+      { name: "Compositing" },
+      { name: "Motion Tracking" },
     ],
   },
   {
-    title: "Basis Data & ORM",
+    title: "Audio & Sound Design",
     code: "04",
-    icon: Database,
+    icon: Sliders,
     skills: [
-      { name: "PostgreSQL" },
-      { name: "Prisma ORM" },
-      { name: "MySQL" },
-      { name: "Supabase" },
-      { name: "Redis" },
+      { name: "Adobe Audition" },
+      { name: "Sound Effects (SFX)" },
+      { name: "Beat Syncing" },
+      { name: "Audio Mixing" },
     ],
   },
   {
-    title: "Integrasi AI & LLM",
+    title: "Desain & Aset Visual",
     code: "05",
-    icon: Cloud,
+    icon: Layers,
     skills: [
-      { name: "Gemini API" },
-      { name: "Prompt Grounding" },
-      { name: "BullMQ Job Queues" },
+      { name: "Adobe Photoshop" },
+      { name: "Adobe Illustrator" },
+      { name: "Figma" },
+      { name: "Typography Layout" },
     ],
   },
   {
-    title: "DevOps & Deployment",
+    title: "Workflow & Delivery",
     code: "06",
-    icon: Cloud,
-    skills: [
-      { name: "Vercel" },
-      { name: "Cloudflare Pages" },
-      { name: "GitHub Actions" },
-      { name: "Docker" },
-      { name: "npm" },
-    ],
-  },
-  {
-    title: "Developer Tools",
-    code: "07",
     icon: Wrench,
     skills: [
-      { name: "Git" },
-      { name: "GitHub" },
-      { name: "Postman" },
-      { name: "Bruno" },
-      { name: "TablePlus" },
-      { name: "Vitest" },
-      { name: "VS Code" },
+      { name: "Adobe Media Encoder" },
+      { name: "Frame.io" },
+      { name: "Reels / TikTok / Shorts" },
+      { name: "YouTube & Commercial" },
     ],
   },
 ];
@@ -146,84 +133,152 @@ export interface Project {
   description: string;
   image: string;
   tags: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  caseStudyUrl?: string;
+  instagramUrl: string;
+  embedUrl: string;
   featured: boolean;
+  details: {
+    concept: string;
+    execution: string;
+    workflow: string;
+    highlights: string[];
+  };
 }
 
 export const projects: Project[] = [
   {
-    id: "internship-journal",
-    number: "05",
-    title: "Internship Journal Siswa",
-    version: "v1.0",
-    category: "MANAJEMEN / APLIKASI WEB",
-    description: "Sistem manajemen jurnal magang untuk siswa dengan fitur tracking kegiatan harian, laporan, dan evaluasi mentor.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
-    tags: ["React", "Laravel", "MySQL", "Tailwind CSS"],
-    githubUrl: "https://github.com",
-    caseStudyUrl: "#",
-    featured: true,
-  },
-  {
-    id: "studyflow",
-    number: "06",
-    title: "StudyFlow",
-    version: "v1.0",
-    category: "EDUTECH / FULL-STACK & AI",
-    description: "Platform pembelajaran full-stack dengan integrasi AI untuk personalisasi pengalaman belajar dan tracking progress.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    tags: ["Next.js 15", "TypeScript", "Express.js", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Gemini AI", "Zod"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: true,
-  },
-  {
-    id: "class-website",
-    number: "03",
-    title: "Class 1IA08 Website",
-    category: "WEB / PORTAL",
-    description: "Portal website kelas dengan fitur informasi, galeri, dan integrasi database real-time.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
-    tags: ["React", "Vite", "Tailwind", "Supabase", "Framer Motion"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: true,
-  },
-  {
-    id: "ecovoyage",
-    number: "04",
-    title: "Game EcoVoyage - Pulau Harapan",
-    category: "GAME / EDUKASI",
-    description: "Game edukasi berbasis web tentang pelestarian lingkungan dengan gameplay interaktif.",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=400&fit=crop",
-    tags: ["HTML5", "JavaScript", "CSS3"],
-    liveUrl: "https://example.com",
-    featured: false,
-  },
-  {
-    id: "a-day-at-home",
-    number: "02",
-    title: "A Day At Home",
-    category: "GAME / EDUKASI KHUSUS",
-    description: "Game edukasi untuk anak-anak tunarungu dengan pendekatan visual interaktif dan bahasa isyarat.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop",
-    tags: ["React", "Tailwind CSS"],
-    githubUrl: "https://github.com",
-    featured: false,
-  },
-  {
-    id: "portfolio-website",
+    id: "reel-da_gpvqzb89",
     number: "01",
-    title: "Portfolio Website",
-    category: "WEB / PERSONAL",
-    description: "Website portfolio modern dengan desain editorial gelap, animasi halus, dan pengalaman pengguna yang interaktif.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "Motion Graphics & Visual Edit #01",
+    version: "9:16 REEL",
+    category: "MOTION GRAPHICS / VIDEO EDIT",
+    description:
+      "Karya video editing & motion graphics dengan ritme transisi cepat, sinkronisasi audio yang presisi, serta komposisi grafis dinamis untuk format vertical reel.",
+    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=500&fit=crop",
+    tags: ["After Effects", "Premiere Pro", "Motion Graphics", "Sound Sync"],
+    instagramUrl: "https://www.instagram.com/reel/Da_gPVQzB89/?utm_source=ig_web_copy_link&bqrl=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
+    embedUrl: "https://www.instagram.com/reel/Da_gPVQzB89/embed/",
+    featured: true,
+    details: {
+      concept:
+        "Menyajikan visual storytelling berdurasi singkat dengan hook kuat di 3 detik pertama agar audiens langsung tertarik mengikuti alur video hingga akhir.",
+      execution:
+        "Mengombinasikan speed ramping, keyframe motion graphics yang mulus, serta penekanan visual pada ketukan musik utama.",
+      workflow:
+        "Assembly cut & beat-syncing di Adobe Premiere Pro, dilanjutkan dengan motion compositing di Adobe After Effects dan finishing color look.",
+      highlights: [
+        "Dynamic speed ramping & seamless transition cuts",
+        "Custom kinetic typography & motion overlays",
+        "Tight audio beat-syncing & punchy SFX layering",
+      ],
+    },
+  },
+  {
+    id: "reel-dcdnxeptpjr",
+    number: "02",
+    title: "Motion Graphics & Visual Edit #02",
+    version: "9:16 REEL",
+    category: "VIDEO EDITING / STORYTELLING",
+    description:
+      "Eksplorasi visual storytelling dan motion design dengan perpaduan tipografi kinetik, masking presisi, serta atmosfer warna yang konsisten.",
+    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=500&fit=crop",
+    tags: ["Premiere Pro", "After Effects", "Color Grading", "Kinetic Type"],
+    instagramUrl: "https://www.instagram.com/reel/DcDNXEPTpjR/?utm_source=ig_web_copy_link&knvt=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
+    embedUrl: "https://www.instagram.com/reel/DcDNXEPTpjR/embed/",
+    featured: true,
+    details: {
+      concept:
+        "Membangun alur cerita visual yang padat dan ekspresif dalam rasio vertikal 9:16 tanpa mengurangi keterbacaan elemen grafis.",
+      execution:
+        "Menggunakan kurva animasi custom (graph editor), rotoscoping bersih, serta penyesuaian tone warna untuk memperkuat mood.",
+      workflow:
+        "Rough cut & pacing di Premiere Pro, animasi layer grafis di After Effects, serta color grading untuk konsistensi tiap adegan.",
+      highlights: [
+        "Smooth graph-editor easing & motion blur",
+        "Layered sound design untuk transisi antar-scene",
+        "Color-graded look yang konsisten untuk mobile display",
+      ],
+    },
+  },
+  {
+    id: "reel-dya4nuxtfyu",
+    number: "03",
+    title: "Motion Graphics & Visual Edit #03",
+    version: "9:16 REEL",
+    category: "MOTION DESIGN / COMPOSITING",
+    description:
+      "Proyek motion graphics dengan penekanan pada compositing berlapis, animasi elemen UI/grafis, dan transisi antar-scene yang halus.",
+    image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=800&h=500&fit=crop",
+    tags: ["After Effects", "Compositing", "Motion Tracking", "VFX"],
+    instagramUrl: "https://www.instagram.com/reel/DYa4NUXTfYU/?utm_source=ig_web_copy_link&dmpr=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
+    embedUrl: "https://www.instagram.com/reel/DYa4NUXTfYU/embed/",
+    featured: true,
+    details: {
+      concept:
+        "Menghadirkan detail visual bergerak yang terasa hidup dengan menyatukan elemen grafis 2D/3D ke dalam komposisi video.",
+      execution:
+        "Penerapan motion tracking, depth layering, dan glow/light blend agar elemen motion menyatu alami dengan footage.",
+      workflow:
+        "Pre-comp terstruktur di After Effects, tracking kamera/objek, compositing efek visual, dan final mastering H.264 high-bitrate.",
+      highlights: [
+        "Multi-layer motion compositing & depth separation",
+        "Clean motion tracking & graphic integration",
+        "High-contrast lighting & glow styling",
+      ],
+    },
+  },
+  {
+    id: "reel-devhlm1gkvw",
+    number: "04",
+    title: "Motion Graphics & Visual Edit #04",
+    version: "9:16 REEL",
+    category: "COLOR GRADING / REEL EDIT",
+    description:
+      "Karya editing video dengan fokus pada rhythm cutting, look development sinematik, dan keseimbangan visual antara footage serta tipografi.",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=500&fit=crop",
+    tags: ["DaVinci Resolve", "Premiere Pro", "Color Grading", "SFX"],
+    instagramUrl: "https://www.instagram.com/reel/DeVhlM1gkVw/?utm_source=ig_web_copy_link&lqvp=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
+    embedUrl: "https://www.instagram.com/reel/DeVhlM1gkVw/embed/",
     featured: false,
+    details: {
+      concept:
+        "Memaksimalkan kekuatan atmosfer visual dan ketepatan timing cut sehingga setiap transisi terasa natural namun tetap enerjik.",
+      execution:
+        "Penyelarasan exposure & color balance antar-klip, penambahan elemen grafis minimalis, serta mixing audio yang jernih.",
+      workflow:
+        "Editing timeline & pacing di Premiere Pro, color management di DaVinci Resolve, dan final audio polish.",
+      highlights: [
+        "Precision rhythm cutting & pacing control",
+        "Balanced filmic color tone & skin-tone protection",
+        "Minimalist motion titles & crisp export profile",
+      ],
+    },
+  },
+  {
+    id: "reel-dx-xeeptuil",
+    number: "05",
+    title: "Motion Graphics & Visual Edit #05",
+    version: "9:16 REEL",
+    category: "KINETIC TYPE / VISUAL EDIT",
+    description:
+      "Kombinasi tipografi kinetik, efek visual dinamis, dan editing berenergi tinggi yang dirancang khusus untuk engagement optimal di Instagram Reels.",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=500&fit=crop",
+    tags: ["After Effects", "Kinetic Type", "Premiere Pro", "Beat Sync"],
+    instagramUrl: "https://www.instagram.com/reel/DX-xeEpTuIl/?utm_source=ig_web_copy_link&bqrl=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
+    embedUrl: "https://www.instagram.com/reel/DX-xeEpTuIl/embed/",
+    featured: false,
+    details: {
+      concept:
+        "Menciptakan visual reel dengan energi tinggi yang memadukan teks bergerak, transisi cepat, dan aksen visual yang berkesinambungan.",
+      execution:
+        "Sinkronisasi frame-by-frame dengan tempo musik, variasi skala tipografi, dan aksen tekstur film untuk karakter visual yang khas.",
+      workflow:
+        "Layout & animasi teks di After Effects, penyusunan pacing akhir serta sound effects di Premiere Pro.",
+      highlights: [
+        "Frame-accurate kinetic typography & rhythm sync",
+        "Custom transition presets & motion blur polish",
+        "Optimized vertical framing (9:16) for Instagram Reels",
+      ],
+    },
   },
 ];
 
@@ -348,29 +403,29 @@ export const terminalCommands: Record<string, string> = {
   help: `Available commands:
   help        - Show this help message
   projects    - List all projects
-  skills      - Show tech stack
+  skills      - Show editing & motion tools
   experience  - Show work experience
+  instagram   - Open Instagram profile
   github      - Open GitHub profile
   contact     - Show contact info
   whoami      - About me
   clear       - Clear terminal`,
-  whoami: `Ahfad Amirudin
-Web Developer / Software Engineer
+  whoami: `Ahfadh Amirudin
+Video Editor / Motion Graphics
 Based in Bogor / Jakarta, Indonesia
+Instagram: @necessaryy._
 Currently available for new opportunities.`,
-  projects: `Featured Projects:
-  1. Internship Journal Siswa - React, Laravel, MySQL
-  2. StudyFlow - Next.js 15, Prisma, Gemini AI
-  3. Class 1IA08 Website - React, Supabase
-  4. EcoVoyage - HTML5 Game
-  5. A Day At Home - Educational Game
-  6. Portfolio Website - React, Framer Motion`,
-  skills: `Tech Stack:
-  Frontend  : React, Next.js, TypeScript, Tailwind CSS
-  Backend   : Node.js, Express, Laravel, Prisma
-  Database  : PostgreSQL, MySQL, Supabase, Redis
-  DevOps    : Vercel, Docker, GitHub Actions
-  Tools     : Git, VS Code, Postman, Figma`,
+  projects: `Featured Instagram Reels (@necessaryy._):
+  1. Motion Graphics & Visual Edit #01 - After Effects, Premiere Pro
+  2. Motion Graphics & Visual Edit #02 - Kinetic Type, Color Grading
+  3. Motion Graphics & Visual Edit #03 - Compositing, Motion Tracking
+  4. Motion Graphics & Visual Edit #04 - DaVinci Resolve, Rhythm Cut
+  5. Motion Graphics & Visual Edit #05 - Kinetic Type, Beat Sync`,
+  skills: `Tools & Expertise:
+  Video Editing   : Adobe Premiere Pro, DaVinci Resolve, CapCut Pro
+  Motion Graphics : Adobe After Effects, Blender, Kinetic Typography
+  Color & VFX     : Color Correction, Compositing, Motion Tracking
+  Audio & Design  : Adobe Audition, Photoshop, Illustrator, Figma`,
   experience: `Work Experience:
   Frontend Developer Intern
   PT. AMA Salam Indonesia
@@ -378,16 +433,19 @@ Currently available for new opportunities.`,
   → Built Project Management System
   → React + TypeScript + Tailwind CSS`,
   contact: `Contact Information:
-  Email    : ighifarii05@gmail.com
-  GitHub   : github.com/IGhifari
-  LinkedIn : linkedin.com/in/ighifari
-  Location : Bogor / Jakarta, Indonesia`,
+  Instagram : instagram.com/necessaryy._
+  Email     : ighifarii05@gmail.com
+  GitHub    : github.com/IGhifari
+  LinkedIn  : linkedin.com/in/ighifari
+  Location  : Bogor / Jakarta, Indonesia`,
+  instagram: `Opening Instagram profile...
+  → https://www.instagram.com/necessaryy._/`,
   github: `Opening GitHub profile...
   → https://github.com/IGhifari`,
 };
 
 export const footerInfo = {
-  copyright: `\u00a9 2026 Ahfad Amirudin. Semua hak dilindungi undang-undang.`,
+  copyright: `\u00a9 2026 Ahfadh Amirudin. Semua hak dilindungi undang-undang.`,
   builtWith: "Dibuat dengan React 18, Vite & Tailwind CSS",
   updated: "DIPERBARUI — 19 November 2026",
 };

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Code2, Layers } from "lucide-react";
+import { Film, Sparkles } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import { personalInfo } from "../data/portfolio";
 
 export default function About() {
   const metadata = [
-    { label: "PERAN", value: "Web Developer / Software Engineer" },
+    { label: "PERAN", value: personalInfo.role },
     { label: "LOKASI", value: personalInfo.location },
     { label: "STATUS", value: "Tersedia untuk Proyek & Kerja" },
   ];
@@ -44,13 +44,13 @@ export default function About() {
           {/* Narrative paragraphs */}
           <div className="space-y-4 text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
             <p>
-              Saya adalah seorang Web Developer & Software Engineer yang berfokus pada pembangunan solusi digital yang bersih, terstruktur, dan scalable. Ketertarikan saya terhadap dunia rekayasa perangkat lunak dimulai dari keinginan memahami bagaimana sistem besar diorkestrasi di balik layar.
+              Saya adalah seorang Video Editor & Motion Graphics Artist yang berfokus pada penyusunan cerita visual yang kuat, ritme editing yang presisi, serta animasi grafis yang ekspresif untuk berbagai format konten digital.
             </p>
             <p>
-              Dengan latar belakang pendidikan kejuruan Rekayasa Perangkat Lunak dan studi Informatika di Universitas Gunadarma, saya mengkombinasikan fondasi ilmu komputer teoritis dengan eksekusi kode praktis berstandar industri.
+              Mulai dari konten short-form dinamis (Reels, TikTok, Shorts), video komersial, hingga explainer motion graphics, saya menggabungkan teknik storytelling, tipografi kinetik, serta sound design untuk menjaga keterlibatan audiens dari detik pertama.
             </p>
             <p>
-              Prinsip kerja saya berakar pada kode yang mudah dipelihara (maintainable), performa optimal (Lighthouse 95+), serta antarmuka intuitif yang memberikan kenyamanan maksimal bagi pengguna akhir.
+              Prinsip kerja saya berfokus pada detail visual yang rapi, transisi yang mulus, color grading yang konsisten, serta alur produksi yang tepat waktu sesuai kebutuhan brand dan kreator.
             </p>
           </div>
         </div>
@@ -65,17 +65,17 @@ export default function About() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2.5 rounded-xl bg-[var(--accent-muted)] text-[var(--accent)]">
-                <Code2 size={20} />
+                <Film size={20} />
               </div>
               <h3 className="font-heading text-lg font-bold text-[var(--text-primary)]">
-                Rekayasa Frontend
+                Video Editing & Storytelling
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
-              Membangun Single Page & Server-Side Rendered Applications dengan React, Next.js, TypeScript, dan Tailwind CSS dengan penekanan pada micro-interactions, state management efisien, dan rendering performance.
+              Mengolah footage mentah menjadi narasi visual yang mengalir dan emosional dengan pacing terukur, color grading sinematik, serta sinkronisasi audio dan sound effects yang tajam.
             </p>
             <div className="flex flex-wrap gap-1.5 font-mono-code text-[11px]">
-              {["React", "TypeScript", "Tailwind CSS", "Next.js", "Framer Motion"].map((t) => (
+              {["Premiere Pro", "DaVinci Resolve", "CapCut Pro", "Color Grading", "Sound Sync"].map((t) => (
                 <span key={t} className="px-2.5 py-1 rounded-md bg-[var(--surface-alt)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
                   {t}
                 </span>
@@ -92,17 +92,17 @@ export default function About() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-400">
-                <Layers size={20} />
+                <Sparkles size={20} />
               </div>
               <h3 className="font-heading text-lg font-bold text-[var(--text-primary)]">
-                Arsitektur Full-Stack & API
+                Motion Graphics & Visual FX
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
-              Merancang REST API terstruktur, schema database relasional yang aman, autentikasi berbasis JWT/OAuth, dan integrasi asynchronous background workers untuk proses komputasi berat.
+              Merancang animasi 2D/3D, kinetic typography, animasi logo, UI/HUD motion, dan compositing visual untuk memperkuat identitas visual dan daya tarik video.
             </p>
             <div className="flex flex-wrap gap-1.5 font-mono-code text-[11px]">
-              {["Node.js", "Express", "Prisma ORM", "PostgreSQL", "Redis", "Zod"].map((t) => (
+              {["After Effects", "Kinetic Type", "Blender", "Compositing", "Illustrator"].map((t) => (
                 <span key={t} className="px-2.5 py-1 rounded-md bg-[var(--surface-alt)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
                   {t}
                 </span>

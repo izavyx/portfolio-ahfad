@@ -2,6 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Download, Terminal, Briefcase } from "lucide-react";
 import { personalInfo, socialLinks } from "../data/portfolio";
+import { useTheme } from "../context/ThemeContext";
+import TechText from "./TechText";
+import GradientASCII from "./GradientASCII";
 
 interface HeroProps {
   onOpenTerminal: () => void;
@@ -9,6 +12,8 @@ interface HeroProps {
 
 export default function Hero({ onOpenTerminal }: HeroProps) {
   const [cardRotate, setCardRotate] = useState({ x: 0, y: 0 });
+  const { theme } = useTheme();
+  const isLightMode = theme === "light";
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -24,12 +29,33 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
   return (
     <section
       id="profile"
-      className="relative min-h-[92vh] flex flex-col justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[var(--border-subtle)]"
+      className="relative isolate min-h-[92vh] flex flex-col justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[var(--border-subtle)]"
     >
-      {/* Decorative ambient background glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[350px] bg-[var(--accent)]/10 blur-[140px] pointer-events-none -z-10 rounded-full" />
+      {/* Interactive GradientASCII Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-45 dark:opacity-55">
+        <GradientASCII
+          colors={
+            isLightMode
+              ? ["#1e3fd8", "#2563eb", "#0284c7", "#38bdf8"]
+              : ["#3b82f6", "#06b6d4", "#d0f8ff", "#fff1f2"]
+          }
+          shape="horizon"
+          characters=" =+xX0S8#@"
+          cellSize={22}
+          density={0.8}
+          flicker={0.09}
+          flow={0.95}
+          variation={4}
+          clickEffect="burst"
+          lightMode={isLightMode}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg-primary)]" />
+      </div>
 
-      <div className="max-w-6xl mx-auto w-full">
+      {/* Decorative ambient background glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[350px] bg-[var(--accent)]/10 blur-[140px] pointer-events-none z-0 rounded-full" />
+
+      <div className="max-w-6xl mx-auto w-full relative z-10">
         {/* Top Badges */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -58,15 +84,36 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* Main Info */}
           <div className="lg:col-span-8">
-            {/* Massive Editorial Headline */}
-            <motion.h1
+            {/* Massive Editorial Headline with TechText */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-[var(--text-primary)] leading-[1.05] uppercase mb-4"
+              className="relative w-full h-20 sm:h-24 md:h-28 lg:h-32 mb-2 sm:mb-4 select-none"
             >
-              {personalInfo.name}
-            </motion.h1>
+              <h1 className="sr-only">{personalInfo.name}</h1>
+              <TechText
+                text={personalInfo.name}
+                fontFamily="'Space Grotesk', sans-serif"
+                fontWeight={800}
+                fontSize={80}
+                letterSpacing={-0.03}
+                align="left"
+                color="var(--text-primary)"
+                accentColor="var(--accent)"
+                reveal="letter"
+                dashLength={4}
+                dashGap={2}
+                specks={15}
+                intro="none"
+                introDuration={2}
+                clickKick
+                draggable
+                sweep
+                speed={0.8}
+                guides={false}
+              />
+            </motion.div>
 
             {/* Sub-headline */}
             <motion.div
@@ -121,12 +168,12 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
               </a>
 
               <a
-                href={`https://github.com/${personalInfo.githubUsername}`}
+                href={socialLinks.find((s) => s.name === "Instagram")?.url || "https://www.instagram.com/necessaryy._/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-mono-code text-xs sm:text-sm transition-colors"
               >
-                <span>GITHUB</span>
+                <span>INSTAGRAM</span>
                 <ArrowUpRight size={14} />
               </a>
 
@@ -184,7 +231,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
               {/* Card Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)] mb-4">
                 <span className="font-mono-code text-[10px] tracking-widest text-[var(--accent)] font-semibold uppercase">
-                  {personalInfo.shortName}.DEV // RUNNER
+                  {personalInfo.shortName}.MOTION // EDITOR
                 </span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               </div>
@@ -204,11 +251,11 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                 <h3 className="font-heading text-lg font-bold text-[var(--text-primary)]">
                   {personalInfo.name}
                 </h3>
-                <p className="font-mono-code text-xs text-[var(--text-secondary)]">
-                  FULL-STACK DEV
+                <p className="font-mono-code text-xs text-[var(--text-secondary)] uppercase">
+                  VIDEO EDITOR & MOTION GRAPHICS
                 </p>
                 <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between font-mono-code text-[10px] text-[var(--text-muted)]">
-                  <span>ID: #DEV-2026</span>
+                  <span>ID: #MOTION-2026</span>
                   <span>BOGOR, ID</span>
                 </div>
               </div>

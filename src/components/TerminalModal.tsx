@@ -18,7 +18,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
   const [history, setHistory] = useState<CommandHistoryItem[]>([
     {
       command: "welcome",
-      output: `AHFAD-OS v1.0.0 (x86_64-pc-browser)
+      output: `AHFADH-OS v1.0.0 (x86_64-pc-browser)
 Ketik 'help' untuk daftar perintah yang tersedia.`,
     },
   ]);
@@ -53,7 +53,7 @@ Ketik 'help' untuk daftar perintah yang tersedia.`,
     setInput("");
   };
 
-  const quickCommands = ["help", "projects", "skills", "experience", "github", "contact", "clear"];
+  const quickCommands = ["help", "whoami", "skills", "instagram", "contact", "clear"];
 
   return (
     <AnimatePresence>
@@ -71,7 +71,7 @@ Ketik 'help' untuk daftar perintah yang tersedia.`,
                 <span className="w-3 h-3 rounded-full bg-rose-500/80 cursor-pointer" onClick={onClose} />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                <span className="ml-3 text-xs text-zinc-400">visitor@ahfad: ~ zsh</span>
+                <span className="ml-3 text-xs text-zinc-400">visitor@ahfadh: ~ zsh</span>
               </div>
               <button
                 onClick={onClose}
@@ -101,7 +101,7 @@ Ketik 'help' untuk daftar perintah yang tersedia.`,
               {history.map((item, i) => (
                 <div key={i} className="space-y-1">
                   <div className="flex items-center gap-2 text-emerald-400">
-                    <span>visitor@ahfad:~$</span>
+                    <span>visitor@ahfadh:~$</span>
                     <span className="text-white">{item.command}</span>
                   </div>
                   <pre className="text-zinc-300 whitespace-pre-wrap pl-4 border-l border-zinc-800 leading-relaxed font-sans text-xs">
@@ -120,7 +120,7 @@ Ketik 'help' untuk daftar perintah yang tersedia.`,
               }}
               className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-t border-zinc-800"
             >
-              <span className="text-emerald-400 text-xs">visitor@ahfad:~$</span>
+              <span className="text-emerald-400 text-xs">visitor@ahfadh:~$</span>
               <input
                 ref={inputRef}
                 type="text"

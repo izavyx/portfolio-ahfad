@@ -9,13 +9,13 @@ export default function AiAssistant() {
   const [messages, setMessages] = useState<Array<{ sender: "ai" | "user"; text: string }>>([
     {
       sender: "ai",
-      text: `Halo! Saya asisten AI portofolio ${personalInfo.shortName}. Ada yang ingin Anda tanyakan seputar proyek, keahlian teknologi, atau pengalaman kerjanya?`,
+      text: `Halo! Saya asisten AI portofolio ${personalInfo.shortName}. Ada yang ingin Anda tanyakan seputar karya video editing, motion graphics, tools, atau cara menghubunginya?`,
     },
   ]);
 
   const quickPrompts = [
-    "Apa proyek terbesarnya?",
-    "Teknologi yang dikuasai?",
+    "Software & tools yang dikuasai?",
+    "Bagaimana cara melihat karyanya?",
     "Pengalaman kerja saat ini?",
     "Bagaimana cara kontak?",
   ];
@@ -27,17 +27,18 @@ export default function AiAssistant() {
     const lower = text.toLowerCase();
     let reply = "";
 
-    if (lower.includes("proyek") || lower.includes("project")) {
-      reply = `${personalInfo.shortName} telah membangun beberapa proyek unggulan seperti StudyFlow (EdTech bertenaga AI), Internship Journal Siswa (React + Laravel), dan Class Portal Website. Cek bagian Proyek untuk detailnya!`;
-    } else if (lower.includes("teknologi") || lower.includes("skill") || lower.includes("stack")) {
-      reply = `Tech stack utamanya mencakup TypeScript, React, Next.js, Tailwind CSS di frontend; Node.js, Express, Laravel, Prisma, PostgreSQL di backend; serta integrasi AI dengan Gemini API.`;
+    const igHandle = socialLinks.find((s) => s.name === "Instagram")?.handle || "@necessaryy._";
+
+    if (lower.includes("proyek") || lower.includes("project") || lower.includes("karya") || lower.includes("lihat")) {
+      reply = `Anda dapat melihat karya editing dan motion graphics ${personalInfo.shortName} di bagian Proyek maupun langsung melalui Instagram ${igHandle}.`;
+    } else if (lower.includes("software") || lower.includes("tools") || lower.includes("teknologi") || lower.includes("skill") || lower.includes("stack")) {
+      reply = `Tools utamanya mencakup Adobe Premiere Pro, Adobe After Effects, DaVinci Resolve, Blender, Adobe Audition, Photoshop, dan Illustrator untuk video editing, animasi motion graphics, serta color grading.`;
     } else if (lower.includes("pengalaman") || lower.includes("kerja") || lower.includes("magang")) {
-      reply = `Saat ini ${personalInfo.shortName} memiliki pengalaman sebagai Frontend Developer Intern di PT. AMA Salam Indonesia (5 bulan), mengembangkan sistem manajemen proyek dan optimasi performa web vitals.`;
-    } else if (lower.includes("kontak") || lower.includes("hubungi") || lower.includes("email")) {
-      const linkedInHandle = socialLinks.find((s) => s.name === "LinkedIn")?.handle || "LinkedIn";
-      reply = `Anda dapat menghubungi ${personalInfo.shortName} langsung melalui email di ${personalInfo.email} atau LinkedIn di ${linkedInHandle}.`;
+      reply = `${personalInfo.shortName} berfokus sebagai ${personalInfo.role} yang menangani editing video, kinetic typography, dan visual storytelling. Detail perjalanan dan pengalamannya tersedia pada bagian Pengalaman.`;
+    } else if (lower.includes("kontak") || lower.includes("hubungi") || lower.includes("email") || lower.includes("instagram")) {
+      reply = `Anda dapat menghubungi ${personalInfo.shortName} melalui Instagram di ${igHandle} atau email di ${personalInfo.email}.`;
     } else {
-      reply = `Terima kasih pertanyaannya! ${personalInfo.shortName} adalah Web Developer & Software Engineer berfokus pada ekosistem React, TypeScript, dan arsitektur backend scalable. Ada hal spesifik lain yang ingin Anda ketahui?`;
+      reply = `Terima kasih pertanyaannya! ${personalInfo.shortName} adalah ${personalInfo.role} yang berfokus pada visual storytelling, animasi motion graphics, dan color grading. Cek Instagram ${igHandle} untuk melihat portofolionya!`;
     }
 
     setMessages((prev) => [...prev, { sender: "user", text }, { sender: "ai", text: reply }]);

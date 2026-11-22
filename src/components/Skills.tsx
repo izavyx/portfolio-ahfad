@@ -9,8 +9,8 @@ export default function Skills() {
     <SectionWrapper
       id="stack"
       sectionNumber="05"
-      title="TEKNOLOGI"
-      subtitle="TEKNOLOGI YANG DIGUNAKAN"
+      title="TOOLS"
+      subtitle="SOFTWARE & TOOLS YANG DIGUNAKAN"
     >
       {/* Bento Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">

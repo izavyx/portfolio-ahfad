@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import TerminalModal from "./components/TerminalModal";
 import MusicPlayer from "./components/MusicPlayer";
 import AiAssistant from "./components/AiAssistant";
+import UserCursor from "./components/UserCursor";
 
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
@@ -31,6 +32,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 relative selection:bg-[var(--accent)] selection:text-white">
+      {/* Interactive Collaborator Cursor: User Cursor */}
+      <UserCursor name="Ahfadh" badge="@necessaryy._" />
+
       {/* Navigation Header */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
