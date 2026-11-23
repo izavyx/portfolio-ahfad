@@ -256,7 +256,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                 </p>
                 <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between font-mono-code text-[10px] text-[var(--text-muted)]">
                   <span>ID: #MOTION-2026</span>
-                  <span>BOGOR, ID</span>
+                  <span>JAKARTA, ID</span>
                 </div>
               </div>
             </motion.div>

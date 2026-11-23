@@ -162,7 +162,7 @@ export default function Contact() {
             </div>
             <div className="flex items-center gap-3 text-sm text-[var(--text-primary)]">
               <MapPin size={18} className="text-[var(--accent)]" />
-              <span>Bogor, Jawa Barat, Indonesia · UTC+7 (WIB)</span>
+              <span>{personalInfo.location} · UTC+7 (WIB)</span>
             </div>
           </div>
 

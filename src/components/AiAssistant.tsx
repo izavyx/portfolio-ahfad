@@ -33,8 +33,8 @@ export default function AiAssistant() {
       reply = `Anda dapat melihat karya editing dan motion graphics ${personalInfo.shortName} di bagian Proyek maupun langsung melalui Instagram ${igHandle}.`;
     } else if (lower.includes("software") || lower.includes("tools") || lower.includes("teknologi") || lower.includes("skill") || lower.includes("stack")) {
       reply = `Tools utamanya mencakup Adobe Premiere Pro, Adobe After Effects, DaVinci Resolve, Blender, Adobe Audition, Photoshop, dan Illustrator untuk video editing, animasi motion graphics, serta color grading.`;
-    } else if (lower.includes("pengalaman") || lower.includes("kerja") || lower.includes("magang")) {
-      reply = `${personalInfo.shortName} berfokus sebagai ${personalInfo.role} yang menangani editing video, kinetic typography, dan visual storytelling. Detail perjalanan dan pengalamannya tersedia pada bagian Pengalaman.`;
+    } else if (lower.includes("pengalaman") || lower.includes("kerja") || lower.includes("magang") || lower.includes("freelance") || lower.includes("commission")) {
+      reply = `${personalInfo.shortName} berpengalaman sebagai freelance Video Editor & Motion Graphics sejak 2023 berbasis di ${personalInfo.location}, dan telah menyelesaikan lebih dari 30 commission video editing.`;
     } else if (lower.includes("kontak") || lower.includes("hubungi") || lower.includes("email") || lower.includes("instagram")) {
       reply = `Anda dapat menghubungi ${personalInfo.shortName} melalui Instagram di ${igHandle} atau email di ${personalInfo.email}.`;
     } else {

@@ -114,11 +114,11 @@ export default function Projects() {
             >
               <div>
                 {/* Image Cover */}
-                <div className="relative h-56 sm:h-64 overflow-hidden border-b border-[var(--border-subtle)] bg-[var(--surface-alt)]">
+                <div className="relative h-64 sm:h-72 overflow-hidden border-b border-[var(--border-subtle)] bg-[var(--surface-alt)]">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-black/20 to-transparent opacity-80" />
 

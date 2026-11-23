@@ -48,6 +48,13 @@ html {
   color: var(--text-primary);
 }
 
+@media (pointer: fine) {
+  html.hide-os-cursor,
+  html.hide-os-cursor * {
+    cursor: none !important;
+  }
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-primary);

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Calendar, MapPin, Award } from "lucide-react";
+import { CheckCircle2, Calendar, MapPin, Film } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import { experienceTimeline, journeyTimeline } from "../data/portfolio";
 
@@ -26,7 +26,7 @@ export default function Experience() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono-code text-[11px] font-semibold bg-[var(--accent-muted)] text-[var(--accent)] mb-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                  <span>MAGANG INDUSTRI // {exp.number}</span>
+                  <span>FREELANCE // {exp.number}</span>
                 </div>
                 <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
                   {exp.title}
@@ -85,23 +85,27 @@ export default function Experience() {
                 ))}
               </div>
 
-              <button
-                onClick={() => alert("Sertifikat Magang terverifikasi oleh PT. AMA Salam Indonesia.")}
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface-alt)] text-[var(--text-primary)] hover:border-[var(--border-hover)] font-mono-code text-xs transition-colors"
               >
-                <Award size={13} className="text-[var(--accent)]" />
-                <span>LIHAT SERTIFIKAT</span>
-              </button>
+                <Film size={13} className="text-[var(--accent)]" />
+                <span>LIHAT KARYA REEL</span>
+              </a>
             </div>
           </motion.div>
         ))}
 
-        {/* Development Journey Milestones */}
+        {/* Career Journey Milestones */}
         <div className="pt-8">
           <div className="font-mono-code text-xs text-[var(--accent)] font-semibold tracking-wider uppercase mb-6 flex items-center gap-2">
             <span>04 / PERJALANAN</span>
             <span className="h-px w-10 bg-[var(--accent)] opacity-40"></span>
-            <span>MILESTONE PENGEMBANGAN</span>
+            <span>MILESTONE PERJALANAN</span>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">

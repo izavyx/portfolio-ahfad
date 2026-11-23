@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useVelocity } from "framer-motion";
 
 export interface UserCursorProps {
   /** Name displayed inside the collaborator tag */
@@ -18,6 +18,8 @@ export interface UserCursorProps {
   stiffness?: number;
   /** Spring damping */
   damping?: number;
+  /** Maximum tilt rotation angle in degrees */
+  maxTilt?: number;
   className?: string;
 }
 
@@ -26,10 +28,11 @@ export default function UserCursor({
   badge = "@necessaryy._",
   color = "var(--accent)",
   textColor = "#ffffff",
-  hideDefaultCursor = false,
+  hideDefaultCursor = true,
   offset = { x: 14, y: 16 },
-  stiffness = 420,
-  damping = 32,
+  stiffness = 950,
+  damping = 48,
+  maxTilt = 28,
   className = "",
 }: UserCursorProps) {
   const [visible, setVisible] = useState(false);
@@ -38,11 +41,19 @@ export default function UserCursor({
 
   const rawX = useMotionValue(-100);
   const rawY = useMotionValue(-100);
-  const rawRotate = useMotionValue(0);
 
-  const x = useSpring(rawX, { stiffness, damping, mass: 0.45 });
-  const y = useSpring(rawY, { stiffness, damping, mass: 0.45 });
-  const rotate = useSpring(rawRotate, { stiffness: 260, damping: 22 });
+  const x = useSpring(rawX, { stiffness, damping, mass: 0.2 });
+  const y = useSpring(rawY, { stiffness, damping, mass: 0.2 });
+
+  const xVelocity = useVelocity(x);
+  const yVelocity = useVelocity(y);
+
+  const targetRotate = useTransform([xVelocity, yVelocity], ([vx, vy]: number[]) => {
+    const angle = vx * 0.024 - vy * 0.005;
+    return Math.max(-maxTilt, Math.min(maxTilt, angle));
+  });
+
+  const rotate = useSpring(targetRotate, { stiffness: 320, damping: 20, mass: 0.3 });
 
   const offsetX = offset?.x ?? 14;
   const offsetY = offset?.y ?? 16;
@@ -58,11 +69,10 @@ export default function UserCursor({
 
     const effectiveX = hideDefaultCursor ? 0 : offsetX;
     const effectiveY = hideDefaultCursor ? 0 : offsetY;
-    let lastX = 0;
-    let resetTiltTimer = 0;
+    let hasMoved = false;
 
     if (hideDefaultCursor) {
-      document.documentElement.classList.add("cursor-none");
+      document.documentElement.classList.add("hide-os-cursor");
     }
 
     const onPointerMove = (e: PointerEvent) => {
@@ -71,23 +81,28 @@ export default function UserCursor({
         return;
       }
 
+      const target = e.target as HTMLElement | null;
+      if (target?.tagName === "IFRAME") {
+        setVisible(false);
+        return;
+      }
+
       const nextX = e.clientX + effectiveX;
       const nextY = e.clientY + effectiveY;
-      const dx = e.clientX - lastX;
-      lastX = e.clientX;
 
-      rawX.set(nextX);
-      rawY.set(nextY);
+      if (!hasMoved) {
+        hasMoved = true;
+        rawX.jump(nextX);
+        rawY.jump(nextY);
+        x.jump(nextX);
+        y.jump(nextY);
+      } else {
+        rawX.set(nextX);
+        rawY.set(nextY);
+      }
       setVisible(true);
 
-      // Subtle velocity-based tilt
-      const clampedTilt = Math.max(-12, Math.min(12, dx * 0.45));
-      rawRotate.set(clampedTilt);
-      window.clearTimeout(resetTiltTimer);
-      resetTiltTimer = window.setTimeout(() => rawRotate.set(0), 90);
-
       // Detect interactive element hover
-      const target = e.target as HTMLElement | null;
       const isInteractive = Boolean(
         target?.closest("a, button, [role='button'], input, textarea, select, [data-cursor-interactive]")
       );
@@ -104,6 +119,7 @@ export default function UserCursor({
     };
 
     const onMouseLeave = () => {
+      hasMoved = false;
       setVisible(false);
       setPressed(false);
     };
@@ -114,16 +130,15 @@ export default function UserCursor({
     document.documentElement.addEventListener("mouseleave", onMouseLeave);
 
     return () => {
-      window.clearTimeout(resetTiltTimer);
       if (hideDefaultCursor) {
-        document.documentElement.classList.remove("cursor-none");
+        document.documentElement.classList.remove("hide-os-cursor");
       }
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerUp);
       document.documentElement.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, [hideDefaultCursor, offsetX, offsetY, rawX, rawY, rawRotate]);
+  }, [hideDefaultCursor, offsetX, offsetY, rawX, rawY, x, y]);
 
   return (
     <motion.div
@@ -132,7 +147,9 @@ export default function UserCursor({
       style={{
         x,
         y,
-        rotate,
+        originX: 0,
+        originY: 0,
+        transformOrigin: "0px 0px",
       }}
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{
@@ -142,14 +159,18 @@ export default function UserCursor({
       transition={{ opacity: { duration: 0.16 }, scale: { duration: 0.14 } }}
     >
       <div className="relative flex items-start">
-        {/* Multiplayer Collaborator Pointer Arrow */}
-        <svg
+        {/* Multiplayer Collaborator Pointer Arrow (only the cursor arrow tilts, pivoting at its tip) */}
+        <motion.svg
           width="22"
           height="22"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)] shrink-0"
+          style={{
+            rotate,
+            transformOrigin: "4px 3px",
+          }}
+          className="-ml-[4px] -mt-[3px] drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)] shrink-0 will-change-transform"
         >
           <path
             d="M4.5 3.5L19.5 11.2L12.6 13.6L9.8 20.5L4.5 3.5Z"
@@ -158,9 +179,9 @@ export default function UserCursor({
             strokeWidth="1.75"
             strokeLinejoin="round"
           />
-        </svg>
+        </motion.svg>
 
-        {/* Floating Name Tag */}
+        {/* Floating Name Tag (stays upright without tilt) */}
         <div
           className="ml-1 mt-3.5 flex items-center gap-1.5 px-2.5 py-1 rounded-full rounded-tl-sm shadow-lg shadow-black/30 border border-white/20 backdrop-blur-md whitespace-nowrap"
           style={{

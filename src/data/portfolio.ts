@@ -20,16 +20,16 @@ export const personalInfo = {
   avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=Ahfadh&backgroundColor=3b82f6",
   status: "Tersedia untuk Bekerja",
   resumeUrl: "#",
-  email: "ighifarii05@gmail.com",
-  location: "Bogor / Jakarta, Indonesia",
-  githubUsername: "IGhifari",
+  email: "ijonk333@gmail.com",
+  location: "Jakarta, Indonesia",
+  githubUsername: "izavyx",
 };
 
 export const socialLinks = [
   { name: "Instagram", url: "https://www.instagram.com/necessaryy._/", icon: InstagramIcon, handle: "@necessaryy._" },
-  { name: "GitHub", url: "https://github.com/IGhifari", icon: GithubIcon, handle: "@IGhifari" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/ighifari", icon: LinkedinIcon, handle: "in/ighifari" },
-  { name: "Email", url: "mailto:ighifarii05@gmail.com", icon: Mail, handle: "ighifarii05@gmail.com" },
+  { name: "GitHub", url: "https://github.com/izavyx", icon: GithubIcon, handle: "@izavyx" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/ahfadh-amirudin-5b978b424/", icon: LinkedinIcon, handle: "in/ahfadh-amirudin" },
+  { name: "Email", url: "mailto:ijonk333@gmail.com", icon: Mail, handle: "ijonk333@gmail.com" },
 ];
 
 export const navItems = [
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     category: "MOTION GRAPHICS / VIDEO EDIT",
     description:
       "Karya video editing & motion graphics dengan ritme transisi cepat, sinkronisasi audio yang presisi, serta komposisi grafis dinamis untuk format vertical reel.",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=500&fit=crop",
+    image: "/thumbnails/reel-01.jpg",
     tags: ["After Effects", "Premiere Pro", "Motion Graphics", "Sound Sync"],
     instagramUrl: "https://www.instagram.com/reel/Da_gPVQzB89/?utm_source=ig_web_copy_link&bqrl=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
     embedUrl: "https://www.instagram.com/reel/Da_gPVQzB89/embed/",
@@ -180,7 +180,7 @@ export const projects: Project[] = [
     category: "VIDEO EDITING / STORYTELLING",
     description:
       "Eksplorasi visual storytelling dan motion design dengan perpaduan tipografi kinetik, masking presisi, serta atmosfer warna yang konsisten.",
-    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=500&fit=crop",
+    image: "/thumbnails/reel-02.jpg",
     tags: ["Premiere Pro", "After Effects", "Color Grading", "Kinetic Type"],
     instagramUrl: "https://www.instagram.com/reel/DcDNXEPTpjR/?utm_source=ig_web_copy_link&knvt=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
     embedUrl: "https://www.instagram.com/reel/DcDNXEPTpjR/embed/",
@@ -207,7 +207,7 @@ export const projects: Project[] = [
     category: "MOTION DESIGN / COMPOSITING",
     description:
       "Proyek motion graphics dengan penekanan pada compositing berlapis, animasi elemen UI/grafis, dan transisi antar-scene yang halus.",
-    image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=800&h=500&fit=crop",
+    image: "/thumbnails/reel-03.jpg",
     tags: ["After Effects", "Compositing", "Motion Tracking", "VFX"],
     instagramUrl: "https://www.instagram.com/reel/DYa4NUXTfYU/?utm_source=ig_web_copy_link&dmpr=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
     embedUrl: "https://www.instagram.com/reel/DYa4NUXTfYU/embed/",
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     category: "COLOR GRADING / REEL EDIT",
     description:
       "Karya editing video dengan fokus pada rhythm cutting, look development sinematik, dan keseimbangan visual antara footage serta tipografi.",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=500&fit=crop",
+    image: "/thumbnails/reel-04.jpg",
     tags: ["DaVinci Resolve", "Premiere Pro", "Color Grading", "SFX"],
     instagramUrl: "https://www.instagram.com/reel/DeVhlM1gkVw/?utm_source=ig_web_copy_link&lqvp=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
     embedUrl: "https://www.instagram.com/reel/DeVhlM1gkVw/embed/",
@@ -261,7 +261,7 @@ export const projects: Project[] = [
     category: "KINETIC TYPE / VISUAL EDIT",
     description:
       "Kombinasi tipografi kinetik, efek visual dinamis, dan editing berenergi tinggi yang dirancang khusus untuk engagement optimal di Instagram Reels.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=500&fit=crop",
+    image: "/thumbnails/reel-05.jpg",
     tags: ["After Effects", "Kinetic Type", "Premiere Pro", "Beat Sync"],
     instagramUrl: "https://www.instagram.com/reel/DX-xeEpTuIl/?utm_source=ig_web_copy_link&bqrl=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==",
     embedUrl: "https://www.instagram.com/reel/DX-xeEpTuIl/embed/",
@@ -299,22 +299,23 @@ export interface TimelineItem {
 
 export const experienceTimeline: TimelineItem[] = [
   {
-    id: "internship",
+    id: "freelance-video-editor",
     type: "work",
     number: "01",
-    title: "Frontend Developer Intern",
-    organization: "PT. AMA Salam Indonesia (Ama Salam Foundation)",
-    location: "Bogor, Jawa Barat, Indonesia",
-    period: "Oktober 2025 – Februari 2026",
-    duration: "5 Bulan",
-    description: "Mengembangkan sistem manajemen proyek dan antarmuka web responsif.",
+    title: "Freelance Video Editor & Motion Graphics",
+    organization: "Independent · 30+ Commissions Completed",
+    location: "Jakarta, Indonesia",
+    period: "2023 – Sekarang",
+    duration: "30+ Commissions",
+    description:
+      "Berpengalaman sebagai freelance video editor & motion graphics sejak 2023 dengan lebih dari 30 commission yang telah diselesaikan untuk berbagai kebutuhan konten digital, reels, dan visual storytelling.",
     highlights: [
-      "Membangun Project Management System dari nol",
-      "Mengembangkan UI modular dengan React & Tailwind CSS",
-      "Optimasi performa web menggunakan Lighthouse / Web Vitals",
-      "Integrasi workflow kanban untuk manajemen tugas tim",
+      "Menyelesaikan 30+ commission video editing & motion graphics sejak 2023",
+      "Memproduksi konten short-form dinamis untuk Instagram Reels, TikTok, & Shorts",
+      "Mengerjakan kinetic typography, compositing, speed ramping, & audio beat-sync",
+      "Mengelola color grading, revisi klien, dan delivery tepat waktu dengan kualitas tinggi",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Lighthouse / Web Vitals"],
+    tags: ["After Effects", "Premiere Pro", "DaVinci Resolve", "Motion Graphics", "30+ Commissions"],
     icon: Briefcase,
   },
 ];
@@ -322,18 +323,21 @@ export const experienceTimeline: TimelineItem[] = [
 export const journeyTimeline = [
   {
     number: "01",
-    title: "Fondasi Awal",
-    description: "Pendidikan kejuruan rekayasa perangkat lunak di SMKN 1 Cibinong. Mempelajari dasar-dasar HTML, CSS, JavaScript, PHP, dan Git.",
+    title: "Mulai Freelance (2023)",
+    description:
+      "Memulai perjalanan profesional sebagai freelance video editor, membangun fondasi storytelling, pacing cutting, dan sinkronisasi audio.",
   },
   {
     number: "02",
-    title: "Transisi Full-Stack",
-    description: "Membangun single page application dengan React, Tailwind, Express, Prisma, dan JWT authentication.",
+    title: "Ekspansi Motion Graphics",
+    description:
+      "Mendalami Adobe After Effects, kinetic typography, compositing berlapis, serta look development untuk memperkuat karakter visual video.",
   },
   {
     number: "03",
-    title: "Pengembangan Sistem & Produk",
-    description: "Mengembangkan sistem produksi: platform AksesKita, PMS di PT. AMA Salam, dan solusi e-commerce.",
+    title: "30+ Commission Selesai",
+    description:
+      "Dipercaya menangani lebih dari 30 proyek commission video editing dan motion graphics bagi berbagai kreator dan klien dari Jakarta.",
   },
 ];
 
@@ -349,53 +353,15 @@ export const educationTimeline: TimelineItem[] = [
     icon: GraduationCap,
   },
   {
-    id: "smk",
+    id: "sma",
     type: "education",
     number: "02",
-    title: "Rekayasa Perangkat Lunak (RPL)",
-    organization: "SMKN 1 Cibinong",
+    title: "SMA Prestasi Prima (IPA)",
+    organization: "Sekolah Menengah Atas Berbasis IT",
     period: "2023 – 2026",
-    description: "Pendidikan kejuruan dalam pengembangan perangkat lunak, membangun fondasi kuat dalam pemrograman dan pengembangan web.",
+    description:
+      "Sekolah SMA berbasis IT dengan peminatan Ilmu Pengetahuan Alam (IPA) yang memadukan kurikulum sains dan penguasaan teknologi digital kreatif.",
     icon: GraduationCap,
-  },
-];
-
-export interface Certificate {
-  id: string;
-  title: string;
-  issuer: string;
-  period: string;
-  skills?: string[];
-}
-
-export const certificates: Certificate[] = [
-  {
-    id: "cert-1",
-    title: "Frontend Developer Internship",
-    issuer: "PT. AMA Salam Indonesia",
-    period: "Okt 2025 – Feb 2026",
-    skills: ["React", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    id: "cert-2",
-    title: "National Game Creation Competition",
-    issuer: "Clevio",
-    period: "Jan – Feb 2025",
-    skills: ["Game Development", "HTML5", "JavaScript"],
-  },
-  {
-    id: "cert-3",
-    title: "Basic Data Science Training",
-    issuer: "Digitalent Kominfo",
-    period: "2024",
-    skills: ["Python", "Data Analysis"],
-  },
-  {
-    id: "cert-4",
-    title: "Basic Web Development Training",
-    issuer: "Islamic Development Network",
-    period: "2023",
-    skills: ["HTML", "CSS", "JavaScript"],
   },
 ];
 
@@ -412,7 +378,7 @@ export const terminalCommands: Record<string, string> = {
   clear       - Clear terminal`,
   whoami: `Ahfadh Amirudin
 Video Editor / Motion Graphics
-Based in Bogor / Jakarta, Indonesia
+Based in Jakarta, Indonesia
 Instagram: @necessaryy._
 Currently available for new opportunities.`,
   projects: `Featured Instagram Reels (@necessaryy._):
@@ -427,21 +393,21 @@ Currently available for new opportunities.`,
   Color & VFX     : Color Correction, Compositing, Motion Tracking
   Audio & Design  : Adobe Audition, Photoshop, Illustrator, Figma`,
   experience: `Work Experience:
-  Frontend Developer Intern
-  PT. AMA Salam Indonesia
-  Oktober 2025 - Februari 2026 (5 Months)
-  → Built Project Management System
-  → React + TypeScript + Tailwind CSS`,
+  Freelance Video Editor & Motion Graphics
+  Independent (30+ Commissions Completed)
+  2023 - Sekarang · Jakarta, Indonesia
+  → Video Editing, Motion Graphics & Short-Form Reels
+  → Adobe After Effects + Premiere Pro + DaVinci Resolve`,
   contact: `Contact Information:
   Instagram : instagram.com/necessaryy._
-  Email     : ighifarii05@gmail.com
-  GitHub    : github.com/IGhifari
-  LinkedIn  : linkedin.com/in/ighifari
-  Location  : Bogor / Jakarta, Indonesia`,
+  Email     : ijonk333@gmail.com
+  GitHub    : github.com/izavyx
+  LinkedIn  : linkedin.com/in/ahfadh-amirudin-5b978b424
+  Location  : Jakarta, Indonesia`,
   instagram: `Opening Instagram profile...
   → https://www.instagram.com/necessaryy._/`,
   github: `Opening GitHub profile...
-  → https://github.com/IGhifari`,
+  → https://github.com/izavyx`,
 };
 
 export const footerInfo = {
